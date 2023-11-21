@@ -4,7 +4,9 @@ import TableFunc from './func';
 import Greet from './Greet';
 import Classlist from './classlist';
 import Table from './Table';
-
+import Use from './usestate';
+import React from 'react';
+import { useState } from 'react';
 function App() {
   const playerName=[
     {
@@ -68,6 +70,34 @@ function App() {
       pname:"Kabbadi"
     }
   ]
+
+  const employee=[
+
+    {
+    name:"Alex",
+    skills:[
+    {name:"ReactJS", type:"Frontend"},
+    {name:"nodeJS", type:"Backend"}
+    ]
+    
+    },
+    {
+    name:"Anna",
+    skills:[
+    {name:"Angular", type:"Frontend"},
+    {name:"Python", type:"Backend"}
+    ]
+    
+  }
+    
+    
+    ]
+
+    const[count,setcount]=useState("blue")
+    const change=()=>{
+      setcount("Red")
+    }
+
   return(
     <div className="App">
       <h2>Functional Component</h2>
@@ -78,6 +108,11 @@ function App() {
       <Table team={playerName}/>
       <List sportsName={sports}/>
       <Greet use="worker" age="22"/>
+
+      <h2>UseState</h2>
+      <p>value:{count}</p>
+          <button onClick={change}>change</button>
+          <Use cout={employee}/>
     </div>
   );
 }
